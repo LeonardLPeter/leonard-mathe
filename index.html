@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -11,12 +10,42 @@
       background-color: #f7f7f7;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #283593;
+      padding: 1rem 2rem;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .nav-links a {
+      margin-left: 1.5rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav .nav-links a:hover {
+      text-decoration: underline;
     }
     header {
-      background-color: #283593;
-      color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 0;
+      background-color: #e8eaf6;
+    }
+    .header-image {
+      width: 100%;
+      height: 300px;
+      background-image: url('https://images.unsplash.com/photo-1584697964154-fd72f87cf117');
+      background-size: cover;
+      background-position: center;
+    }
+    .header-text {
+      padding: 2rem;
     }
     section {
       padding: 2rem;
@@ -39,33 +68,37 @@
   </style>
 </head>
 <body>
+  <nav>
+    <div><strong>Leonard Mathe</strong></div>
+    <div class="nav-links">
+      <a href="#about">Über mich</a>
+      <a href="#prices">Preise</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+  </nav>
+
   <header>
-    <h1>Mathe-Nachhilfe mit Leonard</h1>
-    <p>Individuell. Verständlich. Erfolgreich.</p>
+    <div class="header-image"></div>
+    <div class="header-text">
+      <h1>Mathe-Nachhilfe mit Leonard</h1>
+      <p>Individuell. Verständlich. Erfolgreich.</p>
+    </div>
   </header>
 
-  <section>
+  <section id="about">
     <h2>Über mich</h2>
     <p>Ich bin Leonard Peter, Lehramtsstudent für Mathematik am Gymnasium. Seit mehreren Jahren gebe ich erfolgreich Nachhilfe in Mathematik – individuell auf jede:n Schüler:in zugeschnitten und mit Fokus auf echtes Verstehen statt nur Rechnen.</p>
   </section>
 
-  <section>
-    <h2>Angebot</h2>
-    <ul>
-      <li>Einzelunterricht in Mathematik (Klasse 5–13)</li>
-      <li>Abiturvorbereitung</li>
-      <li>Online oder vor Ort (nach Absprache)</li>
-      <li>Flexible Terminvereinbarung</li>
-    </ul>
-  </section>
-
-  <section>
+  <section id="prices">
     <h2>Preise</h2>
-    <p>Einzelstunde (60 Minuten): <strong>25 €</strong><br>
-    Erste Kennenlerneinheit (15 Minuten): kostenlos</p>
+    <p><strong>Einzelstunde (60 Minuten): 35 €</strong></p>
+    <p><strong>2-Stunden-Paket pro Woche:</strong> 30 € pro Stunde (wöchentlich 2x60 Minuten)</p>
+    <p>Es gibt keine verpflichtenden Stunden, keine Vertragslaufzeit und keinerlei Zusatzkosten. 
+    Termine können flexibel vereinbart und bei Bedarf kostenfrei abgesagt werden. Es wird nur das berechnet, was tatsächlich stattfindet – transparent, unkompliziert und fair.</p>
   </section>
 
-  <section>
+  <section id="contact">
     <h2>Kontakt</h2>
     <p>Du hast Interesse oder Fragen?<br>
     Schreib mir einfach eine E-Mail an: <strong>leonard.nachhilfe@email.de</strong></p>
