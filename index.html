@@ -3,67 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mathe Nachhilfe mit Leonard</title>
+  <meta name="description" content="Mathe-Nachhilfe in Kassel und online – verständlich, individuell und flexibel. Für Schüler:innen von Klasse 1 bis Studium.">
+  <meta name="keywords" content="Mathe Nachhilfe Kassel, Online Nachhilfe Mathematik, Abi Vorbereitung Mathe, Einzelnachhilfe, Schülerhilfe Kassel, Nachhilfe Gymnasium">
+  <meta name="author" content="Leonard Peter">
+  <title>Mathe Nachhilfe mit Leonard – Online & in Kassel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #283593;
-      padding: 1rem 2rem;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav .nav-links a {
-      margin-left: 1.5rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav .nav-links a:hover {
-      text-decoration: underline;
-    }
-    header {
-      text-align: center;
-      padding: 0;
-      background-color: #e8eaf6;
-    }
-    .header-image {
-      width: 100%;
-      height: 300px;
-      background-image: url('https://images.unsplash.com/photo-1584697964154-fd72f87cf117');
-      background-size: cover;
-      background-position: center;
-    }
-    .header-text {
-      padding: 2rem;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      margin-top: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #283593;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #e0e0e0;
-      margin-top: 2rem;
+    body { font-family: 'Poppins', sans-serif; background-color: #f4f6fa; margin: 0; padding: 0; scroll-behavior: smooth; color: #333; }
+    nav { display: flex; justify-content: space-between; align-items: center; background-color: #2a3d8f; padding: 1rem 2rem; color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    nav .nav-links a { margin-left: 1.5rem; color: white; text-decoration: none; font-weight: 600; }
+    nav .nav-links a:hover { text-decoration: underline; }
+    header { text-align: center; padding: 0; background-color: #e3e7f5; }
+    .header-image { width: 100%; height: 280px; background-image: url('https://images.unsplash.com/photo-1584697964154-fd72f87cf117'); background-size: cover; background-position: center; filter: brightness(0.9); }
+    .header-text { padding: 2rem; }
+    section { padding: 2rem; max-width: 850px; margin: auto; background: white; margin-top: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
+    h1, h2 { color: #2a3d8f; }
+    .cta-button { display: inline-block; padding: 12px 24px; background: #2a3d8f; color: white; border-radius: 6px; text-decoration: none; margin-top: 1rem; font-weight: 600; transition: background 0.3s; }
+    .cta-button:hover { background: #1f2e6f; }
+    form { margin-top: 1.5rem; }
+    label, select, input, textarea { display: block; width: 100%; margin-bottom: 1rem; font-size: 1rem; }
+    select, input, textarea { padding: 0.6rem; border-radius: 6px; border: 1px solid #ccc; }
+    blockquote { border-left: 4px solid #ccd; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; background-color: #f9f9f9; border-radius: 4px; }
+    cite { display: block; margin-top: 0.5rem; font-size: 0.9rem; color: #666; }
+    footer { text-align: center; padding: 1rem; background-color: #dbe0ea; margin-top: 2rem; font-size: 0.9rem; color: #444; }
+    @media (max-width: 768px) {
+      nav { flex-direction: column; align-items: flex-start; }
+      nav .nav-links { display: flex; flex-direction: column; width: 100%; margin-top: 0.5rem; }
+      nav .nav-links a { margin: 0.5rem 0; }
+      .header-text h1 { font-size: 1.8rem; }
+      .header-text p { font-size: 1rem; }
+      section { padding: 1.5rem; }
+      .cta-button { width: 100%; text-align: center; padding: 14px; font-size: 1rem; }
     }
   </style>
 </head>
@@ -73,6 +43,7 @@
     <div class="nav-links">
       <a href="#about">Über mich</a>
       <a href="#prices">Preise</a>
+      <a href="#testimonials">Erfahrungen</a>
       <a href="#contact">Kontakt</a>
     </div>
   </nav>
@@ -82,26 +53,74 @@
     <div class="header-text">
       <h1>Mathe-Nachhilfe mit Leonard</h1>
       <p>Individuell. Verständlich. Erfolgreich.</p>
+      <a href="#contact" class="cta-button">Jetzt kostenloses Kennenlernen anfragen</a>
     </div>
   </header>
 
   <section id="about">
     <h2>Über mich</h2>
     <p>Ich bin Leonard Peter, Lehramtsstudent für Mathematik am Gymnasium. Seit mehreren Jahren gebe ich erfolgreich Nachhilfe in Mathematik – individuell auf jede:n Schüler:in zugeschnitten und mit Fokus auf echtes Verstehen statt nur Rechnen.</p>
+    <a href="#contact" class="cta-button">Unverbindlich Kontakt aufnehmen</a>
   </section>
 
   <section id="prices">
     <h2>Preise</h2>
     <p><strong>Einzelstunde (60 Minuten): 35 €</strong></p>
     <p><strong>2-Stunden-Paket pro Woche:</strong> 30 € pro Stunde (wöchentlich 2x60 Minuten)</p>
-    <p>Es gibt keine verpflichtenden Stunden, keine Vertragslaufzeit und keinerlei Zusatzkosten. 
-    Termine können flexibel vereinbart und bei Bedarf kostenfrei abgesagt werden. Es wird nur das berechnet, was tatsächlich stattfindet – transparent, unkompliziert und fair.</p>
+    <p>Der Unterricht findet online (z. B. über Zoom) oder bei mir vor Ort in Kassel statt. Es gibt keine verpflichtenden Stunden, keine Vertragslaufzeit und keinerlei Zusatzkosten. Termine können flexibel vereinbart und bei Bedarf kostenfrei abgesagt werden. Es wird nur das berechnet, was tatsächlich stattfindet – transparent, unkompliziert und fair.</p>
+    <a href="#contact" class="cta-button">Jetzt Termin vereinbaren</a>
+  </section>
+
+  <section id="testimonials">
+    <h2>Erfahrungsberichte</h2>
+    <blockquote>
+      <p>„Leonard hat mir Mathe endlich verständlich erklärt. Ich hatte keine Angst mehr vorm Abi!“</p>
+      <cite>– Lena W. (Q1)</cite>
+    </blockquote>
+    <blockquote>
+      <p>„Ich bin von einer 4 auf eine 2 gekommen. Besonders hilfreich waren die Online-Stunden!“</p>
+      <cite>– Daniel M. (Klasse 10)</cite>
+    </blockquote>
+    <blockquote>
+      <p>„Die Nachhilfe bei Leonard war super strukturiert. Ich kann ihn nur weiterempfehlen.“</p>
+      <cite>– Alina K. (Studentin)</cite>
+    </blockquote>
   </section>
 
   <section id="contact">
     <h2>Kontakt</h2>
-    <p>Du hast Interesse oder Fragen?<br>
-    Schreib mir einfach eine E-Mail an: <strong>leonard.nachhilfe@email.de</strong></p>
+    <p>Du hast Interesse oder Fragen? Dann schreib mir einfach per E-Mail oder direkt über das Formular:</p>
+
+    <a href="https://wa.me/4915123456789" class="cta-button">Nachricht per WhatsApp senden</a>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="class">Klasse:</label>
+      <select id="class" name="class" required>
+        <option value="">Bitte wählen</option>
+        <option value="1">Klasse 1</option>
+        <option value="2">Klasse 2</option>
+        <option value="3">Klasse 3</option>
+        <option value="4">Klasse 4</option>
+        <option value="5">Klasse 5</option>
+        <option value="6">Klasse 6</option>
+        <option value="7">Klasse 7</option>
+        <option value="8">Klasse 8</option>
+        <option value="9">Klasse 9</option>
+        <option value="10">Klasse 10</option>
+        <option value="11">Klasse 11</option>
+        <option value="12">Klasse 12</option>
+        <option value="13">Klasse 13</option>
+        <option value="student">Student</option>
+      </select>
+
+      <label for="message">Beschreibung:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit" class="cta-button">Nachricht senden</button>
+    </form>
   </section>
 
   <footer>
