@@ -1,237 +1,193 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  flex-direction: column;
+/* Grundstil */
+html {
+  box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
+  min-height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
-  background-color: #fdf8ee;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-color: rgba(255,255,255, 0.65); /* Helligkeit regulieren */
-  z-index: -1;
-  pointer-events: none;
-}
-
-main {
-  flex: 1;
-}
-/* Navigation */
-nav {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #3D6480;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  position: relative;
+}
+body {
+  scroll-padding-top: 120px; /* sorgt dafür, dass der Abschnitt unter der Navigation nicht verdeckt wird */
+}
+
+header {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: #2a3d8f;
-  padding: 1rem 2rem;
-  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 60px 0; /* Verringert das vertikale Padding */
+  min-height: 50vh; /* Reduziert die minimale Höhe des Headers */
+  background-image: url('Header.png'); /* Setze hier den Pfad zu deinem Bild */
+  background-size: auto; /* Verhindert das Strecken des Bildes */
+  background-repeat: repeat; /* Wiederholt das Bild, wenn es kleiner ist als der Bildschirm */
+  background-position: center; /* Positioniert das Hintergrundbild immer in der Mitte */
+}
+
+header h1, header p {
+  color: #003366 !important;
+  font-size: clamp(3rem, 10vw, 11rem); /* Mindestens 3rem, bevorzugt 10vw und maximal 8rem */
+  z-index: 2;
+  margin-top: 180px; /* Fügt Abstand oberhalb der Überschrift hinzu */
+}
+
+/* Hamburger Menu (für kleine Bildschirme) */
+.hamburger {
+  display: none;  /* Hamburger-Menü ist standardmäßig nicht sichtbar */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-top: 10px;
+  z-index: 100;
+}
+
+.hamburger span {
+  display: block;
+  height: 5px;  /* Höhe der einzelnen Linien */
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+}
+
+nav {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  background: #3D6480;
+  padding: 1rem 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Verhindert, dass alles aneinanderklebt */
+  align-items: center;
 }
 
-nav.scrolled {
-  background-color: #1f2e6f;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.nav-logo {
+  display: flex;
+  justify-content: flex-start; /* Positioniert das Logo links */
+  padding-left: 20px; /* Fügt einen kleinen Abstand links hinzu */
 }
 
-nav .logo {
-  height: 60px;
+.logo {
+  height: 50px; /* Setzt eine feste Höhe für das Logo */
 }
 
-nav .nav-links a {
-  margin-left: 1.5rem;
+.nav-links {
+  display: flex;
+  justify-content: center; /* Zentriert die Links innerhalb des Containers */
+  gap: 2rem;
+  flex-grow: 1; /* Macht den Container flexibel */
+}
+
+.nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 600;
 }
 
-nav .nav-links a:hover {
+.nav-links a:hover {
   text-decoration: underline;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 0;
-  background-color: transparent;
-}
-
-.header-image {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background-image: url('Header.png');
-  background-size: cover;
-  background-position: center;
-}
-
-.header-image::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.header-text {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 1;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-}
 
 /* Sektionen */
 section {
-  padding: 1rem 2rem;
-  margin: auto;
-  margin-top: 0.5rem;
-  max-width: 1200px;
+  padding: 6rem 2rem 4rem 2rem; /* Erhöht den Abstand oben */
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.section-dark,
+.section-light {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.section-dark {
+  background-color: #3D6480;
+  color: white;
+  padding: 80px 2rem; /* Erhöht das Padding, um mehr Abstand oben und unten zu schaffen */
+  min-height: 70vh; /* Erhöht die minimale Höhe des Abschnitts auf 70% der Bildschirmhöhe */
 }
 
 .section-light {
   background-color: #ffffff;
-  color: #2a3d8f;
-}
-
-.section-dark {
-  background-color: #2a3d8f;
-  color: #ffffff;
-}
-
-.section-warm {
-  background-color: #fdf8ee;
-  color: #2a3d8f;
-}
-
-.section-soft {
-  background-color: #d7e0f5;
-  color: #2a3d8f;
-}
-
-.section-padding {
-  padding: 3rem 2rem;
+  color: #3D6480;
+  padding: 80px 2rem; /* Erhöht das Padding, um mehr Abstand oben und unten zu schaffen */
+  min-height: 70vh; /* Erhöht die minimale Höhe des Abschnitts auf 70% der Bildschirmhöhe */
 }
 
 .section-inner {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  margin-top:100px; /* Fügt oben mehr Abstand hinzu */
+  margin-bottom:60px
 }
 
-.white-box,
-.card,
-.price-container {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-.white-box {
-  background: #fafbfe;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.2rem;
-}
-
-/* Typografie */
 h1, h2 {
-  color: #2a3d8f;
-  margin-bottom: 1.5rem;
-  margin-top: 1rem;
-}
-
-.section-title {
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #2a3d8f;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 1rem;
-  font-weight: 600;
-  transition: background 0.3s;
-  text-align: center;
-}
-
-.cta-button:hover {
-  background: #1f2e6f;
-}
-
-/* Formular */
-form {
-  margin-top: 1rem;
-}
-
-label, select, input, textarea {
-  display: block;
-  width: 100%;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  font-size: 1rem;
 }
 
-select, input, textarea {
-  padding: 0.6rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
 }
 
-/* Zitate */
-blockquote {
-  border-left: 4px solid #ccd;
-  padding-left: 1rem;
-  margin: 1rem 0;
-  font-style: italic;
-  background-color: #f9f9f9;
-  border-radius: 4px;
+ul li::before {
+  content: "\2022";
+  color: #3D6480;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
 }
 
-cite {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #666;
+.section-dark ul li::before {
+  color: white;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #cfd3dc;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #444;
+#ueber-uns p {
+  text-align: justify; /* Setzt den Text auf Blocksatz */
 }
 
-/* Cards */
+/* Cards: Was wir bieten */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  justify-content: center;
-  max-width: 1200px;
-  margin: auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .card {
   background: #ffffff;
   border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -240,170 +196,355 @@ footer {
   transform: translateY(-5px);
 }
 
-/* Preisbox */
-.price-container {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: center;
-}
-
-.card-icon, .price-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #2a3d8f;
-}
-
 .card-icon {
-  background: #e3e7f5;
-  border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem auto;
-  font-size: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 2.5rem;
 }
 
-.price-icon {
+.card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #3D6480;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #555;
+}
+
+/* Preis-Stil */
+.price-box {
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.price-box .price-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.price-text {
+.price-box .price-value {
   font-size: 2rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
 }
 
-.price-subtext, .price-note {
+.price-box .price-text {
   font-size: 1rem;
-  color: #666;
-  margin-bottom: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
 }
 
-/* FAQ */
+/* Kontaktformular */
+.contact-box {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-box label {
+  font-weight: 600;
+}
+
+.contact-box input,
+.contact-box select,
+.contact-box textarea {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-box textarea {
+  resize: vertical;
+}
+
+.contact-box .success-message {
+  display: none;
+  background-color: #d4edda;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  color: #155724;
+  font-weight: 500;
+}
+
+/* Button */
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: #ff6f61 ;
+  color: white;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  background-color: #ff9900; /* Helleres Orange beim Hover */
+}
+
+.cta-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-alt {
+  background-color: #ff6f61  !important;
+  color: white !important;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 0rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cta-alt:hover {
+  opacity: 0.9;
+}
+.submit-button {
+  width: auto; /* Damit der Button nur so breit ist wie der Text */
+  padding: 0.75rem 1.5rem; /* Gleiche Padding wie bei den anderen Buttons */
+  margin-left: 0; /* Verschiebe den Button nach links */
+  margin-right: auto; /* Verhindert, dass der Button nach rechts geht */
+  background-color: #ff6f61  !important;
+  color: white !important; /* Weiße Schriftfarbe für den Button */
+  display: inline-block;
+  border-radius: 8px; /* Gleiche abgerundeten Ecken wie bei den anderen CTAs */
+  font-weight: 600; /* Gleiche Schriftstärke wie bei anderen Buttons */
+  font-size: 1rem; /* Gleiche Schriftgröße wie bei anderen Buttons */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.submit-button:hover {
+  background-color: #ff9900; /* Gleicher Hover-Effekt wie bei den anderen CTAs */
+  transform: scale(1.05); /* Gleicher Hover-Effekt wie bei den anderen Buttons */
+}
+
+/* FAQ Grid */
 .faq-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  margin-bottom: 10rem; /* Erhöht den Abstand zwischen den FAQ und dem Button */
+
+
+}
+.faq-container details {
+  background-color: transparent;
+  border-radius: 6px;
 }
 
-details {
-  margin-bottom: 0.5rem;
+.faq-container details p {
+  background-color: transparent;  /* Macht den Hintergrund der Antwort transparent */
+  color: inherit;  /* Erbt die Textfarbe der restlichen Seite */
 }
-
-/* Benefits */
-.benefits {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  background-color: #e3e7f5;
-  padding: 1rem 2rem;
-  margin: 2rem auto;
-  border-radius: 12px;
+.faq-container summary {
   font-weight: 600;
-  color: #2a3d8f;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.benefit-item {
-  background: white;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+.faq-container p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
 }
 
-/* Sticky CTA */
-.sticky-cta-mobile {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #2a3d8f;
-  color: white;
+/* Footer */
+footer {
+  background-color: #3D6480;
   text-align: center;
-  padding: 1rem;
-  z-index: 999;
+  padding: 0rem; /* Reduziert das Padding, um den Footer kleiner zu machen */
+  font-size: 1rem; /* Macht den Text kleiner */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.sticky-cta-mobile a {
+.footer-left {
+  flex: 1;
+  text-align: left;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.footer-left .footer-link {
   color: white;
   text-decoration: none;
-  font-weight: 600;
+  margin-left: 0.5rem;
+  font-weight: 500;
 }
 
-/* Responsive */
+.footer-left .footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-middle {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.footer-contact {
+  flex: 1;
+  text-align: right;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.footer-contact a {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-contact p {
+  margin: 0.25rem 0;
+}
+
+.whatsapp-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: inline-block;
+  line-height: 1;
+}
+
+.whatsapp-icon i {
+  color: white;
+  font-size: 1.8rem;
+}
+
+/* Responsiv */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Hamburger-Menü Container */
+  #hamburger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 101;
   }
 
-  nav .nav-links {
+  /* Navigationslinks, die beim Klick auf das Hamburger-Menü erscheinen */
+  .nav-links {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 0.5rem;
+    flex-direction: column; /* Anordnung der Links untereinander */
+    gap: 1rem; /* Abstand zwischen den Links */
+    position: absolute;
+    top: 50px; /* Abstände vom oberen Rand */
+    right: 0;
+    width: 200px; /* Breite des Menüs */
+    background-color: #3D6480;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Standardmäßig ausgeblendet */
   }
 
-  nav .nav-links a {
-    margin: 0.5rem 0;
+  /* Links im Hamburger-Menü */
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center; /* Text zentrieren */
   }
 
-  .header-text h1 {
-    font-size: 1.8rem;
+  /* Sichtbar, wenn das Hamburger-Menü geklickt wird */
+  .nav-links.show {
+    display: flex; /* Menü sichtbar machen, wenn die Klasse 'show' hinzugefügt wird */
   }
 
-  .header-text p {
-    font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Zeigt das Hamburger-Menü nur auf kleineren Bildschirmen */
   }
 
-  section {
-    padding: 1.5rem;
-    max-width: 100%;
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Links untereinander anzeigen */
+    gap: 1rem; /* Abstand zwischen den Links */
+    position: absolute; /* Positioniert das Menü relativ zur übergeordneten Navigation */
+    top: 50px; /* Abstand vom oberen Rand der Seite */
+    right: 0; /* Positioniert das Menü auf der rechten Seite */
+    width: 120px; /* Breite des Menüs */
+    background-color: #3D6480; /* Hintergrundfarbe der Box */
+    padding: 1rem; /* Innenabstand, der das Menü vom Rand abhebt */
+    border-radius: 8px; /* Abgerundete Ecken */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Schattierung für das Menü */
+    display: none; /* Standardmäßig ausgeblendet */
   }
 
-  .card-container,
+  .nav-links.show {
+    display: flex; /* Sichtbar machen, wenn die Klasse 'show' hinzugefügt wird */
+  }
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
   .faq-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .card, .price-container {
-    max-width: 100%;
-  }
-
-  .cta-button {
-    width: 100%;
-    text-align: center;
-    padding: 14px;
-    font-size: 1rem;
-  }
-
-  .sticky-cta-mobile {
-    display: block;
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
-  .benefits {
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex; /* Zeigt die Navigationselemente nur auf großen Bildschirmen */
   }
-}
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  .hamburger {
+    display: none;  /* Verstecke das Hamburger-Menü auf großen Bildschirmen */
+  }
 }
